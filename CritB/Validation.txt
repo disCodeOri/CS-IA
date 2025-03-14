@@ -1,0 +1,75 @@
+| Field Name                  | Data Validation Type        | Explanation                                                                 |
+| :-------------------------- | :-------------------------- | :-------------------------------------------------------------------------- |
+| **Cookie Jar Module**       |                             |                                                                             |
+| Cookie Name                 | • Presence Check            | Must not be empty; User must provide a name for the cookie.                |
+|                             | • Length Check              | Must be within a reasonable length (e.g., <= 100 characters).               |
+|                             | • Type Check                | Must be text (string).                                                      |
+| Cookie Description          | • Presence Check            | Must not be empty; User must provide a description for the cookie.          |
+|                             | • Length Check              | Must be within a reasonable length (e.g., <= 500 characters).               |
+|                             | • Type Check                | Must be text (string).                                                      |
+| **Doubt Tracker Module**    |                             |                                                                             |
+| Doubt Title                 | • Presence Check            | Must not be empty; User must provide a title for the doubt.                 |
+|                             | • Length Check              | Must be within a reasonable length (e.g., <= 100 characters).               |
+|                             | • Type Check                | Must be text (string).                                                      |
+| Doubt Description           | • Presence Check            | Must not be empty; User must provide a description for the doubt.           |
+|                             | • Length Check              | Must be within a reasonable length (e.g., <= 1000 characters).              |
+|                             | • Type Check                | Must be text (string).                                                      |
+| Doubt Solution              | • Presence Check            | Must not be empty when marking doubt as 'Resolved'.                        |
+|                             | • Length Check              | Must be within a reasonable length (e.g., <= 1000 characters).              |
+|                             | • Type Check                | Must be text (string).                                                      |
+| Doubt Comment               | • Presence Check            | Must not be empty when submitting a comment.                               |
+|                             | • Length Check              | Must be within a reasonable length (e.g., <= 500 characters).               |
+|                             | • Type Check                | Must be text (string).                                                      |
+| **Curiosity Space Module**  |                             |                                                                             |
+| Idea Title                  | • Presence Check            | Must not be empty; User must provide a title for the idea.                  |
+|                             | • Length Check              | Must be within a reasonable length (e.g., <= 100 characters).               |
+|                             | • Type Check                | Must be text (string).                                                      |
+| Idea Description            | • Presence Check            | Must not be empty; User must provide a description for the idea.            |
+|                             | • Length Check              | Must be within a reasonable length (e.g., <= 1000 characters).              |
+|                             | • Type Check                | Must be text (string).                                                      |
+| Idea Solution               | • Presence Check            | Must not be empty when marking idea as 'Resolved'.                         |
+|                             | • Length Check              | Must be within a reasonable length (e.g., <= 1000 characters).              |
+|                             | • Type Check                | Must be text (string).                                                      |
+| Idea Comment                | • Presence Check            | Must not be empty when submitting a comment.                               |
+|                             | • Length Check              | Must be within a reasonable length (e.g., <= 500 characters).               |
+|                             | • Type Check                | Must be text (string).                                                      |
+| **To-Do List Module**       |                             |                                                                             |
+| Section Title               | • Presence Check            | Must not be empty; User must provide a title for the section.               |
+|                             | • Length Check              | Must be within a reasonable length (e.g., <= 100 characters).               |
+|                             | • Type Check                | Must be text (string).                                                      |
+| Column Title                | • Presence Check            | Must not be empty; User must provide a title for the column.                |
+|                             | • Length Check              | Must be within a reasonable length (e.g., <= 100 characters).               |
+|                             | • Type Check                | Must be text (string).                                                      |
+| Note Content                | • Presence Check            | Must not be empty; User must provide content for the note.                 |
+|                             | • Length Check              | Must be within a reasonable length (e.g., <= 1000 characters).              |
+|                             | • Type Check                | Must be text (string).                                                      |
+| Subtask Content             | • Presence Check            | Must not be empty; User must provide content for the subtask.              |
+|                             | • Length Check              | Must be within a reasonable length (e.g., <= 500 characters).               |
+|                             | • Type Check                | Must be text (string).                                                      |
+| **Continuous Info Space Module**|                             |                                                                             |
+| Notebook Title              | • Presence Check            | Must not be empty; User must provide a title for the notebook.              |
+|                             | • Length Check              | Must be within a reasonable length (e.g., <= 100 characters).               |
+|                             | • Type Check                | Must be text (string).                                                      |
+| Section Title               | • Presence Check            | Must not be empty; User must provide a title for the section.               |
+|                             | • Length Check              | Must be within a reasonable length (e.g., <= 100 characters).               |
+|                             | • Type Check                | Must be text (string).                                                      |
+| Column Title                | • Presence Check            | Must not be empty; User must provide a title for the column.                |
+|                             | • Length Check              | Must be within a reasonable length (e.g., <= 100 characters).               |
+|                             | • Type Check                | Must be text (string).                                                      |
+| Note Content                | • Presence Check            | Must not be empty; User must provide content for the note.                 |
+|                             | • Length Check              | Must be within a reasonable length (e.g., <= 1000 characters).              |
+|                             | • Type Check                | Must be text (string).                                                      |
+| Notebook Description        | • Length Check              | Must be within a reasonable length (e.g., <= 500 characters).               |
+|                             | • Type Check                | Must be text (string).                                                      |
+| Note Description            | • Length Check              | Must be within a reasonable length (e.g., <= 500 characters).               |
+|                             | • Type Check                | Must be text (string).                                                      |
+| **Stage Manager Module**    |                             |                                                                             |
+| Space Name                  | • Presence Check            | Must not be empty; User must provide a name for the Space.                 |
+|                             | • Length Check              | Must be within a reasonable length (e.g., <= 100 characters).               |
+|                             | • Type Check                | Must be text (string).                                                      |
+| Window Title                | • Presence Check            | Must not be empty; User must provide a title for the Window.                |
+|                             | • Length Check              | Must be within a reasonable length (e.g., <= 100 characters).               |
+|                             | • Type Check                | Must be text (string).                                                      |
+| **All Text Fields**         | • Presence Check (where indicated)|  Ensures that required text fields are not left blank.                 |
+|                             | • Type Check                | Ensures that the input is of the expected data type (text/string).        |
+|                             | • Length Check              | Ensures that text inputs do not exceed reasonable length limits.           |

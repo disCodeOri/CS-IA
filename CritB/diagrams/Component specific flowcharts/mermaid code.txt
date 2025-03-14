@@ -1,0 +1,521 @@
+StageManger diagram code:
+```
+graph TD
+    A[User Access] --> B[Middleware Authentication]
+    B -->|Public Route| C[Sign-In Page]
+    B -->|Protected Route| D[WorkStage Component]
+    
+    subgraph Authentication Flow
+        B -->|Clerk Middleware| E[Check Session]
+        E -->|Valid| F[Allow Access]
+        E -->|Invalid| C
+    end
+    
+    subgraph WorkStage Initialization
+        D --> G[Load Firebase Data]
+        G --> H[Initialize Spaces]
+        H --> I[Render Manager]
+    end
+    
+    subgraph Space Management
+        I --> J[Space Operations]
+        J --> K[Create Space]
+        J --> L[Delete Space]
+        J --> M[Switch Space]
+        K --> N[Add Default Window]
+        L --> O[Update Spaces Array]
+        M --> P[Update Current Space]
+    end
+    
+    subgraph Window Operations
+        N --> Q[Window CRUD]
+        Q --> R[Create Window]
+        Q --> S[Update Window]
+        Q --> T[Delete Window]
+        R --> U[Position Calculation]
+        S --> V[Content Updates]
+        T --> W[Toast Confirmation]
+    end
+    
+    subgraph Firebase Integration
+        U --> X[Real-time Sync]
+        V --> X
+        W --> X
+        X -->|Firestore| Y[Users Collection]
+        Y --> Z[Document: stageManager/data]
+    end
+    
+    subgraph UI Components
+        D --> AA[Manager Component]
+        AA --> AB[Canvas Area]
+        AA --> AC[Control Panel]
+        AC --> AD[Add Space Button]
+        AC --> AE[Add Window Button]
+        AC --> AF[Delete Space Toast]
+        AB --> AG[Space Container]
+        AG --> AH[Window Components]
+        AH --> AI[Title Bar]
+        AH --> AJ[Content Editable]
+        AH --> AK[Resize Handles]
+    end
+    
+    subgraph Event Handling
+        AD --> K
+        AE --> R
+        AF --> L
+        AI --> AL[Drag Events]
+        AK --> AM[Resize Events]
+        AJ --> V
+        AL --> X
+        AM --> X
+    end
+    
+    C -->|Successful Auth| D
+    F --> D
+    O --> X
+    P --> AG
+    U --> AG
+    W --> AG
+    Y --> G
+```
+
+ToDoList
+```
+%%{init: {'theme':'neutral'}}%%
+flowchart TD
+    A[ToDoList Component Mounts] --> B{User Authenticated?}
+    B -->|Yes| C[Fetch Data from Firestore]
+    B -->|No| D[Redirect to /sign-in]
+    C --> E[Process Data Structure]
+    E --> F[Render UI]
+
+    subgraph Data_Sync[Firestore Sync]
+        direction TB
+        G[State Change] --> H{Debounce 1s?}
+        H -->|Yes| I[Serialize Data]
+        I --> J[Update Firestore]
+        J -->|Error| K[Log Error]
+        J -->|Success| L[Update Timestamp]
+    end
+
+    subgraph Drag_Drop[Drag & Drop Logic]
+        direction TB
+        M[Drag Start] --> N{Item Type?}
+        N -->|Column| O[Store Column Position]
+        N -->|Note| P[Find Source Column/Section]
+        N -->|Subtask| Q[Find Parent Note]
+        
+        R[Drag End] --> S{Drop Valid?}
+        S -->|Yes| T{Move Type?}
+        T -->|Column Reorder| U[Update Columns Array]
+        T -->|Note Move| V[Update Notes Array]
+        T -->|Subtask Move| W[Update Subtasks Array]
+        S -->|No| X[Cancel Operation]
+    end
+
+    subgraph CRUD[CRUD Operations]
+        direction LR
+        Y[Add Section] --> Z[Generate ID\nUpdate State]
+        AA[Delete Section] --> AB[Update State\nShow Toast]
+        AC[Add Column] --> AD[Generate ID\nUpdate State]
+        AE[Delete Column] --> AF[Update State\nShow Toast]
+        AG[Add Note] --> AH[Generate ID\nUpdate State]
+        AI[Delete Note] --> AJ[Update State\nShow Toast]
+        AK[Add Subtask] --> AL[Generate ID\nUpdate State]
+        AM[Delete Subtask] --> AN[Update State\nShow Toast]
+    end
+
+    subgraph UI_Interactions[UI Interactions]
+        direction TB
+        AO[Title Edit] --> AP[Debounced Update]
+        AQ[Checkbox Toggle] --> AR[Update State]
+        AS[Undo Action] --> AT[Restore Item]
+        AU[Archive Section] --> AV[Filter State]
+    end
+
+    F --> Drag_Drop
+    F --> CRUD
+    F --> UI_Interactions
+    CRUD --> Data_Sync
+    Drag_Drop --> Data_Sync
+    UI_Interactions --> Data_Sync
+
+    style A fill:#4CAF50,stroke:#388E3C
+    style Data_Sync fill:#2196F3,stroke:#0D47A1
+    style Drag_Drop fill:#FF9800,stroke:#EF6C00
+    style CRUD fill:#9C27B0,stroke:#6A1B9A
+    style UI_Interactions fill:#009688,stroke:#00695C
+```
+Doubts Tracker
+```
+---
+config:
+  theme: base
+  themeVariables:
+    primaryColor: '#fff'
+---
+flowchart TD
+ subgraph subGraph0["Firebase Operations"]
+        E["Initialize Firebase App"]
+        C["Fetch Initial Doubts"]
+        F["Create Firestore Reference"]
+        G["Set Up Real-time Listener - onSnapshot"]
+        H["Update Doubts State"]
+  end
+ subgraph subGraph1["Main UI"]
+        I["Render Layout"]
+        J["Header with Back Button"]
+        K["Tabs Interface"]
+        L["Open Doubts (filter(!resolved))"]
+        M["Resolved Doubts (filter(resolved))"]
+  end
+ subgraph subGraph2["Doubt Creation"]
+        N["New Doubt Dialog"]
+        O["Show Form"]
+        P["Validate Input"]
+        Q["Add New Document to Firestore"]
+        R["Update UI via Real-time Listener"]
+        S["Show Validation Errors"]
+  end
+ subgraph subGraph3["Single Doubt Interaction"]
+        T["Doubt Card Component"]
+        L/M["L/M"]
+        U["Upvote/Downvote"]
+        V["Update Firestore Document"]
+        W["Edit Doubt"]
+        X["Show Edit Dialog"]
+        Y["Update Firestore Document"]
+        Z["Delete Doubt"]
+        AA["Confirmation Dialog"]
+        AB["Delete Firestore Document"]
+        AC["Resolve/Reopen"]
+        AD["Update resolved Status in Firestore"]
+        AE["Add/Edit Solution"]
+        AF["Expand/Collapse Description"]
+  end
+ subgraph subGraph4["Comment System"]
+        AG["Comment Section"]
+        AH["Show/Hide Comments"]
+        AI["Add New Comment"]
+        AJ["Update Firestore Comments Subcollection"]
+        AK["Edit Comment"]
+        AL["Update Comment Document"]
+        AM["Delete Comment"]
+        AN["Delete Comment Document"]
+        AO["Reply to Comment"]
+        AP["Add Nested Comment with parentId"]
+  end
+ subgraph subGraph5["Error Handling"]
+        AQ["Error Creating Doubt"]
+        AR["Error Updating Votes"]
+        AS["Error Editing Doubt"]
+        AT["Error Deleting Doubt"]
+        AU["Error Adding Comment"]
+        AV["Error Editing Comment"]
+        AW["Error Deleting Comment"]
+        AX["Error Updating Resolution"]
+  end
+    A["User Opens DoubtTracker"] --> B["Middleware Auth Check"]
+    B -- Authenticated --> C
+    B -- Not Authenticated --> D["Redirect to Sign-in"]
+    C --> E
+    E --> F
+    F --> G
+    G --> H
+    H --> I
+    I --> J & K & N
+    K --> L & M
+    N --> O
+    O --> P
+    P -- Valid --> Q
+    Q --> R & AQ
+    P -- Invalid --> S
+    L/M --> T
+    T --> U & W & Z & AC & AF & AG
+    U --> V
+    W --> X
+    X --> Y
+    Z --> AA
+    AA --> AB
+    AC --> AD & AE
+    AG --> AH & AK & AM & AO
+    AH --> AI
+    AI --> AJ
+    AK --> AL
+    AM --> AN
+    AO --> AP
+    V --> AR
+    Y --> AS
+    AB --> AT
+    AJ --> AU
+    AL --> AV & AJ
+    AN --> AW & AJ
+    AD --> AX
+    AP --> AJ
+    style E fill:#2196F3,color:white
+    style G fill:#2196F3,color:white
+    style Q fill:#4CAF50,color:white
+    style V fill:#4CAF50,color:white
+    style AB fill:#F44336,color:white
+    style AD fill:#4CAF50,color:white
+    style AJ fill:#4CAF50,color:white
+    style A fill:#4CAF50,color:white
+    style B fill:#FFC107
+    style D fill:#F44336,color:white
+
+```
+CuriositySpace
+```
+---
+config:
+  theme: base
+  themeVariables:
+    primaryColor: '#fff'
+---
+flowchart TD
+ subgraph subGraph0["Firebase Operations"]
+        E["Initialize Firebase App"]
+        C["Fetch Initial Ideas"]
+        F["Create Firestore Reference"]
+        G["Set Up Real-time Listener - onSnapshot"]
+        H["Update Ideas State"]
+  end
+ subgraph subGraph1["Main UI"]
+        I["Render Layout"]
+        J["Header with Back Button"]
+        K["Tabs Interface"]
+        L["Open Ideas (filter(!resolved))"]
+        M["Resolved Ideas (filter(resolved))"]
+  end
+ subgraph subGraph2["Idea Creation"]
+        N["New Idea Dialog"]
+        O["Show Form"]
+        P["Validate Input"]
+        Q["Add New Document to Firestore"]
+        R["Update UI via Real-time Listener"]
+        S["Show Validation Errors"]
+  end
+ subgraph subGraph3["Single Idea Interaction"]
+        T["Idea Card Component"]
+        L/M["L/M"]
+        U["Upvote/Downvote"]
+        V["Update Firestore Document"]
+        W["Edit Idea"]
+        X["Show Edit Dialog"]
+        Y["Update Firestore Document"]
+        Z["Delete Idea"]
+        AA["Confirmation Dialog"]
+        AB["Delete Firestore Document"]
+        AC["Resolve/Reopen"]
+        AD["Update resolved Status in Firestore"]
+        AE["Add/Edit Solution"]
+        AF["Expand/Collapse Description"]
+  end
+ subgraph subGraph4["Comment System"]
+        AG["Comment Section"]
+        AH["Show/Hide Comments"]
+        AI["Add New Comment"]
+        AJ["Update Firestore Comments Subcollection"]
+        AK["Edit Comment"]
+        AL["Update Comment Document"]
+        AM["Delete Comment"]
+        AN["Delete Comment Document"]
+        AO["Reply to Comment"]
+        AP["Add Nested Comment with parentId"]
+  end
+ subgraph subGraph5["Error Handling"]
+        AQ["Error Creating Idea"]
+        AR["Error Updating Votes"]
+        AS["Error Editing Idea"]
+        AT["Error Deleting Idea"]
+        AU["Error Adding Comment"]
+        AV["Error Editing Comment"]
+        AW["Error Deleting Comment"]
+        AX["Error Updating Resolution"]
+  end
+    A["User Opens CuriositySpace"] --> B["Middleware Auth Check"]
+    B -- Authenticated --> C
+    B -- Not Authenticated --> D["Redirect to Sign-in"]
+    C --> E
+    E --> F
+    F --> G
+    G --> H
+    H --> I
+    I --> J & K & N
+    K --> L & M
+    N --> O
+    O --> P
+    P -- Valid --> Q
+    Q --> R & AQ
+    P -- Invalid --> S
+    L/M --> T
+    T --> U & W & Z & AC & AF & AG
+    U --> V
+    W --> X
+    X --> Y
+    Z --> AA
+    AA --> AB
+    AC --> AD & AE
+    AG --> AH & AK & AM & AO
+    AH --> AI
+    AI --> AJ
+    AK --> AL
+    AM --> AN
+    AO --> AP
+    V --> AR
+    Y --> AS
+    AB --> AT
+    AJ --> AU
+    AL --> AV & AJ
+    AN --> AW & AJ
+    AD --> AX
+    AP --> AJ
+    style E fill:#2196F3,color:white
+    style G fill:#2196F3,color:white
+    style Q fill:#4CAF50,color:white
+    style V fill:#4CAF50,color:white
+    style AB fill:#F44336,color:white
+    style AD fill:#4CAF50,color:white
+    style AJ fill:#4CAF50,color:white
+    style A fill:#4CAF50,color:white
+    style B fill:#FFC107
+    style D fill:#F44336,color:white
+```
+Notebooks
+```
+flowchart TB
+        Start([Start]) --> LoadNotebooks[Load User's Notebooks]
+        LoadNotebooks --> DisplayGrid[Display Notebook Grid]
+        
+        subgraph NotebookActions ["Notebook Actions"]
+            CreateNew["Create New Notebook"] --> ValidateInput{Validate Input}
+            ValidateInput -->|Valid| SaveToDB[(Save to Firebase)]
+            ValidateInput -->|Invalid| ShowError[Show Error]
+            SaveToDB --> RedirectToNotebook[Redirect to Notebook View]
+            
+            DisplayGrid --> |Click Preview| ShowPreview[Show Preview Dialog]
+            DisplayGrid --> |Click Delete| ConfirmDelete{Confirm Delete}
+            ConfirmDelete -->|Yes| DeleteFromDB[(Delete from Firebase)]
+            ConfirmDelete -->|No| CancelDelete[Cancel Operation]
+            
+            DisplayGrid --> |Click Open| OpenNotebook[Open Notebook View]
+        end
+        
+        subgraph NotebookView ["Notebook View"]
+            OpenNotebook --> LoadSections[Load Sections]
+            
+            subgraph SectionManagement ["Section Management"]
+                LoadSections --> ManageSections{Manage Sections}
+                ManageSections --> |Add| CreateSection[Create New Section]
+                ManageSections --> |Archive| ArchiveSection[Move to Archive]
+                ManageSections --> |Delete| DeleteSection[Delete Section]
+                
+                subgraph ColumnManagement ["Column Management"]
+                    ManageSections --> |Add Column| CreateColumn[Create New Column]
+                    CreateColumn --> EditColumn[Edit Column Title]
+                    EditColumn --> ManageNotes{Manage Notes}
+                    
+                    subgraph NoteManagement ["Note Management"]
+                        ManageNotes --> |Add| CreateNote[Create New Note]
+                        ManageNotes --> |Edit| EditNote[Edit Note Content]
+                        ManageNotes --> |Delete| DeleteNote[Delete Note]
+                        ManageNotes --> |Drag| DragNote[Drag Note]
+                        
+                        DragNote --> ValidateDrop{Validate Drop Target}
+                        ValidateDrop -->|Valid| UpdatePosition[Update Note Position]
+                        ValidateDrop -->|Invalid| RevertPosition[Revert Position]
+                    end
+                end
+            end
+            
+            subgraph SyncManagement ["Sync Management"]
+                UpdatePosition --> TriggerSync[Trigger Sync]
+                EditNote --> TriggerSync
+                DeleteNote --> TriggerSync
+                TriggerSync --> Debounce[Debounce 1000ms]
+                Debounce --> SaveChanges[(Save to Firebase)]
+            end
+        end
+    
+    
+    style NotebookView fill:#e6f3ff,stroke:#333,stroke-width:2px
+    style SectionManagement fill:#fff5e6,stroke:#333,stroke-width:2px
+    style ColumnManagement fill:#e6ffe6,stroke:#333,stroke-width:2px
+    style NoteManagement fill:#ffe6e6,stroke:#333,stroke-width:2px
+    style SyncManagement fill:#e6e6ff,stroke:#333,stroke-width:2px
+
+```
+CookieJar
+```
+flowchart TB
+    subgraph CookieJarComponent["CookieJar Component"]
+        Start([Start]) --> Initialize[Initialize Component State]
+        Initialize --> LoadCookies[Fetch Cookies from Firebase]
+        
+        subgraph UserInteractions["User Interactions"]
+            direction TB
+            AddCookie{"Add Cookie"}
+            EditCookie{"Edit Cookie"}
+            DragCookie{"Drag Cookie"}
+            DeleteCookie{"Delete Cookie"}
+            
+            AddCookie -->|Click +| OpenModal[Open Modal Form]
+            OpenModal --> ValidateInput{Validate Input}
+            ValidateInput -->|Valid| SaveNew[(Save to Firebase)]
+            ValidateInput -->|Invalid| ShowError[Show Error]
+            
+            EditCookie -->|Click Edit| LoadCookieData[Load Cookie Data]
+            LoadCookieData --> OpenModal
+            
+            DragCookie -->|Start| SetActiveId[Set Active Cookie ID]
+            DragCookie -->|End| CheckDropZone{Check Drop Zone}
+            CheckDropZone -->|Grid Area| UpdatePosition[Update Position]
+            CheckDropZone -->|Trash Zone| InitiateDelete[Delete Cookie]
+            
+            UpdatePosition --> CalculateGrid[Calculate Grid Position]
+            CalculateGrid --> UpdateFirebase[(Update Firebase)]
+        end
+        
+        subgraph GridManagement["Grid Management"]
+            direction TB
+            RenderGrid[Render Cookie Grid]
+            SortableCookies[Initialize Sortable Context]
+            DndContext[Initialize DnD Context]
+            
+            RenderGrid --> SortableCookies
+            SortableCookies --> DndContext
+            DndContext -->|Position Change| RecalculateGrid[Recalculate Positions]
+            RecalculateGrid -->|Update| UpdateFirebase
+        end
+        
+        subgraph DataSync["Data Synchronization"]
+            direction TB
+            FirebaseOps{Firebase Operations}
+            FirebaseOps -->|Read| FetchCookies[Fetch All Cookies]
+            FirebaseOps -->|Create| AddNewCookie[Add Cookie]
+            FirebaseOps -->|Update| UpdateCookieDoc[Update Cookie]
+            FirebaseOps -->|Delete| RemoveCookie[Delete Cookie]
+            
+            FetchCookies --> SortCookies[Sort by Position]
+            SortCookies --> UpdateState[Update Component State]
+        end
+        
+        subgraph ErrorHandling["Error Handling"]
+            direction TB
+            TryCatch[Try-Catch Blocks]
+            ValidationErrors[Input Validation]
+            FirebaseErrors[Firebase Errors]
+            
+            TryCatch --> HandleError{Handle Error}
+            HandleError -->|Validation| ValidationErrors
+            HandleError -->|Firebase| FirebaseErrors
+            HandleError -->|Other| LogError[Log Error]
+        end
+    end
+    
+    style CookieJarComponent fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style UserInteractions fill:#e6f3ff,stroke:#333,stroke-width:2px
+    style GridManagement fill:#fff5e6,stroke:#333,stroke-width:2px
+    style DataSync fill:#e6ffe6,stroke:#333,stroke-width:2px
+    style ErrorHandling fill:#ffe6e6,stroke:#333,stroke-width:2px
+```

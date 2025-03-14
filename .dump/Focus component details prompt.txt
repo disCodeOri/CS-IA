@@ -1,0 +1,10 @@
+Prompt for the focus session component.
+```
+I'm tryna make this entire application component. this component is basicallly a kind of focus environment and it will have a simple timer for study and for breaks. and this component will also keep a storage of all the study sessions I've had, it will keep track of what time of day that the study session happened and at which day and year it happened. this data will then be used in a separately built analytics component which is out of the scope of this discussion.
+There will also be a lil button in the corner of the screen that will allow me to choose a todo list from an existing component that stores various todo lists. and only one of the todo lists can be chosen by the user to display on the screen.
+
+I want you to ask me questions and really flesh out the details of this component so that everything will be really pre-planned and development will be smoother.
+Please do not make any code just yet.
+
+Also my application uses clerk as the authenticator so i have created a users collection in firebase which contains documents that are linked to the user's Id from clerk, and these documents will contain all the information related to the individual users.
+```

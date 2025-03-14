@@ -1,0 +1,107 @@
+users (collection)
+  └─ {clerkUserId} (document)
+      ├─ cookieJar (subcollection)        // Achievement system <done>
+      │    └─ cookies (document)          // Single document containing all cookies
+      │         └─ cookies (map)
+      │              └─ {cookieId}
+      │                   ├─ name: string
+      │                   ├─ description: string
+      │                   └─ position: {
+      │                       x: number,
+      │                       y: number
+      │                   }
+      │
+      ├─ todoLists (subcollection)        // Todo system
+      │    └─ data (document)             // Single document to store all todo list data
+      │        └─ sections (array)
+      │             └─ {section} (map)
+      │                 ├─ id: string
+      │                 ├─ title: string
+      │                 ├─ columns (array)
+      │                 │    └─ {column} (map)
+      │                 │        ├─ id: string
+      │                 │        ├─ title: string
+      │                 │        └─ notes (array)
+      │                 │             └─ {note} (map)
+      │                 │                 ├─ id: string
+      │                 │                 ├─ content: string
+      │                 │                 ├─ checked: boolean
+      │                 │                 └─ subtasks (array)
+      │                 │                      └─ {subtask} (map)
+      │                 │                          ├─ id: string
+      │                 │                          ├─ content: string
+      │                 │                          └─ checked: boolean
+      │                 └─ isArchived: boolean
+      │                 └─ isPreviewingArchived: boolean
+      │
+      ├─ notebooks (subcollection)           // Continuous info space <done>
+      │    └─ {notebookId} (document)
+      │        ├─ title: string
+      │        ├─ description: string
+      │        ├─ createdAt: timestamp
+      │        ├─ updatedAt: timestamp
+      │        ├─ userId: string
+      │        └─ sections (array)
+      │             └─ {section} (map)
+      │                 ├─ id: string
+      │                 ├─ title: string
+      │                 ├─ columns (array)
+      │                 │    └─ {column} (map)
+      │                 │        ├─ id: string
+      │                 │        ├─ title: string
+      │                 │        └─ notes (array)
+      │                 │             └─ {note} (map)
+      │                 │                 ├─ id: string
+      │                 │                 └─ content: string
+      │                 ├─ isArchived: boolean
+      │                 └─ isPreviewingArchived: boolean 
+      │
+      ├─ stageManager (subcollection)        // Stage manager component <making>
+      │    └─ data (document)             // Single document to store stage manager data
+      │        └─ spaces (array)
+      │             └─ {space} (map)
+      │                  ├─ id: number
+      │                  └─ windows (array)
+      │                       └─ {window} (map)
+      │                            ├─ id: string
+      │                            ├─ title: string
+      │                            ├─ content: string
+      │                            ├─ position: array [number, number]
+      │                            └─ size: array [number, number]
+      │
+      ├─ doubts (subcollection)             // Doubt tracker component <making>
+      │   └─ {doubtId} (document)
+      │       ├─ title: string
+      │       ├─ description: string
+      │       ├─ upvotes: number
+      │       ├─ downvotes: number
+      │       ├─ resolved: boolean
+      │       ├─ solution: string
+      │       ├─ createdAt: timestamp
+      │       └─ comments (subcollection)
+      │           └─ {commentId} (document)
+      │               ├─ text: string
+      │               ├─ parentId: string
+      │               └─ createdAt: timestamp
+      │
+      └─ ideas (subcollection)             // CuriositySpace component <making>
+           └─ {ideaId} (document)
+               ├─ title: string
+               ├─ description: string
+               ├─ upvotes: number
+               ├─ downvotes: number
+               ├─ resolved: boolean
+               ├─ solution: string
+               ├─ createdAt: timestamp
+               └─ comments (subcollection)
+                   └─ {commentId} (document)
+                       ├─ text: string
+                       ├─ parentId: string
+                       └─ createdAt: timestamp
+
+
+{Extension of todoLists} AARs After actions reports, these come up like modals when you mark a column in the tasks kanban as completed, you will be prompted to fill out the initial goals for the task group when you create the task group. the AAR will be accessible through a button on the column for it.
+
+
+story bs
+- client also feel unmotivated at times and to keep motivation up he keeps track of his achievements and his progression, the streaks, the number of quality sessions, hence we building the analytics for the focus sessions.

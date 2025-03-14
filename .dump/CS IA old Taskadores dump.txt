@@ -1,0 +1,109 @@
+0. UI development of the entire thing
+Clarity:
+0.1 Modifying stage-manager
+0.01 space navigation updation
+Done 0.001 space switch animation update to swish instead of bounce
+Done 0.002 keyboard commands to switch
+Done 0.003 overlay like macOS when key commanded 
+Cancelled 0.0001 space window content preview
+Cancelled 0.00001 extract and modify existing window preview code to function on spaces
+Cancelled 0.0002 space renaming
+Cancelled 0.0003 space reordering.
+Done 0.0004 space creation and deletion (deletion must have a confirmation window, and the delete must delete all the windows in it too)
+
+0.2 I need to create a new system of "workspaces", containers for bundles of spaces {BONUS1} {BONUS2}
+1. Github integration + Monaco editor (no doin dat milkdown thingy)
+2. ts-fsrs integration
+3. Gemini API personal notebook LM {BONUS3}
+4. Complete codebase optimisation req. along with extensive comments and possible restructuring of the code (HIGHLY NOT RECOMMENDED TO RESTRUCTURE THE CODE, YOU WILL HEMORRHAGE YOUR PRECIOUS TIME.)
+5. perform tree-shaking on the entire application so that you application size is reduced to remove all the unused dependencies
+
+Github integration requirements and other specifications:
+```
+1. live keystroke updates required, first come first serve.
+2. There is only one user and as such only one repository. auto sync the edits to temp store and then commit them on user request, let me be very clear, the temp store JSON file will not be directly committed, let me illustrate with an example: if there is a file, say note1.md, note2.md, note3.md, and note2.md, and only notes 1 2 and 3 have been committed and note 4 has been created just now. the notes 2 and 3 have edits and the not1 one hasn't been accessed or edited. Now in this case I want the edited data to be stored in the temp storage under Object literals for each different file, here's an example of how that may look like:
+```json
+
+{
+    "notes": [
+        {
+            "filename": "note2",
+            "filetype": "md",
+            "content": "# This is an edited note",
+            "position": {
+                "x": 25,
+                "y": 30
+            },
+            "size": {
+                "x": 45,
+                "y": 55
+            },
+            "z-index": 3,
+            "staged": true,
+            "spaceID" : "space-759"
+        },
+        {
+            "filename": "note3",
+            "filetype": "md",
+            "content": "# This is an edited note",
+            "position": {
+                "x": 25,
+                "y": 30
+            },
+            "size": {
+                "x": 45,
+                "y": 55
+            },
+            "z-index": 2,
+            "staged": false,
+            "spaceID" : "space-789"
+        },
+        {
+            "filename": "note4",
+            "filetype": "md",
+            "content": "# This is a new note",
+            "position": {
+                "x": 25,
+                "y": 30
+            },
+            "size": {
+                "x": 45,
+                "y": 55
+            },
+            "z-index": 1,
+            "staged": true,
+            "spaceID" : "space-789"
+        }
+    ]
+}
+```
+Notice that note1 doesn't have any object literal for itself and that is because it was never accessed. If a file is accessed from github then it's data will be copied into an object of it's own and then if it is closed without edits then the object for will also be cleared, but if there are edits then the object will stay there until the user stages, commits or deletes the changes, even if the user closes the website. And when the user comes back to the website, they will pickup wherever they left off (as implied by the key-value pairs for the state details for all space and windows).
+```
+
+Note: Spaces.tsx and .module.css are for the multi desktop feature, so code accordingly and you will need to delete some existing functionality like the bounce animation.
+1. state saving of Windows and spaces.
+2. Github integration (chat: Building NextJS App with Notes Storage)
+3. Milkdown editor integration and also general file/media viewing implementation.
+
+
+UI kinks:
+- need to implement bread crumbs for each of the file windows that open up in the stage manager.
+- need to display the components in the main page component first and then have a three dot menu option or a square with arrow sticking out button on the SidebarInset area to open it in another table
+
+Code Quality
+- gotta move the UI pieces from being mushed together in the main page.tsx file to their own lil components in the app/components folder (yes, there will be a components folder in each of the page folders)
+
+Development Ease
+- since Deepseek R1 is so smart then we should really make him actually fix that code for the collation engine.
+
+Additional ("Bonus") features:
+{Bonus1: I could implement a search algorithm that uses an impressive algorithm (by IBDP standards) to search for specific windows (maybe implement a really light weight AI to do some fuzzy searching)}
+{Bonus2: How about I implement an infinite canvas style thing, where the dashboard and the WorkStage are in the same horizontal space, parallel to each other and I can collapse them like the columns in the kanban boards of clickup, the main dashboard will be on the default view space and on the right will be the whole WorkStage component and the size of the workstage component will be the size of the view port, i.e. filling up the screen space. :)}
+{Bonus3: I Should fine tune the gemini 2.0 thinking experimental model with DeepSeek R1's responses like how the distilled models were created.}
+
+
+
+
+gotta make a feature where I can simply input my tasks and make taskadores and also get appropriate reminders for those taskadores. I'm thinking a similar UI to DoubtsTracker.
+
+I should built my own personal assistant with really long term memory and agentic access (UI-TARS kinda stuff) - I am or may not add this to the CS IA.

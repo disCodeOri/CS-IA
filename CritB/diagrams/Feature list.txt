@@ -1,0 +1,6 @@
+Stage manager
+ToDoList
+Doubts Tracker
+CuriositySpace
+Notebooks
+CookieJar

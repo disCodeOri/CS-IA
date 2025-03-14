@@ -1,0 +1,35 @@
+| S. No. | Planned Action                                          | Planned Outcome                                                        | Time   | Month | Criterion |
+| ------ | --------------------------------------------------------- | ---------------------------------------------------------------------- | ------ | ----- | --------- |
+| 1      | Finalise Client Consultation and Work Shadowing          | Complete client interviews and work shadowing to fully understand needs and existing system. |        |       | A         |
+| 2      | Draft Criterion A: Scenario and Problem Definition       | Complete the "Scenario" section of Criterion A, clearly defining the problem and client context. |        |       | A         |
+| 3      | Define Proposed Product and Justification              |  Finalise the "Proposed Product" and "Rationale" sections of Criterion A, justifying the chosen solution. |        |       | A         |
+| 4      | Develop Specific Success Criteria                       | Create a detailed and measurable list of "Specific Performance (Success) Criteria" for Criterion A. |        |       | A         |
+| 5      | Complete Criterion A: Planning Documentation           | Finalise and review all sections of Criterion A, ensuring checklist compliance. |        |       | A         |
+| 6      | Create Record of Tasks Form (Criterion B)               | Set up a detailed and realistic Record of Tasks document for project management. |        |       | B         |
+| 7      | Design Low-Fidelity Wireframes for UI                   | Sketch basic wireframes for each module (Cookie Jar, Doubt Tracker, etc.) to outline UI layout. |        |       | B         |
+| 8      | Design Mid-Fidelity Wireframes and User Flows            | Develop more detailed digital wireframes and user flow diagrams for key functionalities. |        |       | B         |
+| 9      | Design Database Schema (Firestore)                      | Plan and diagrammatically represent the Firestore database structure. |        |       | B         |
+| 10     | Create Test Plan and Test Cases (Criterion B)          | Develop a comprehensive test plan with specific test cases linked to success criteria. |        |       | B         |
+| 11     | Complete Criterion B: Solution Overview Documentation  | Finalise and review all sections of Criterion B, including designs and test plan. |        |       | B         |
+| 12     | Set up Next.js Project with Tailwind CSS and Clerk     | Initial project setup including framework, styling, and authentication. |        |       | C         |
+| 13     | Implement Firebase Firestore Integration                | Configure Firebase and Firestore for backend data management.         |        |       | C         |
+| 14     | Develop Cookie Jar Module                               | Code and test the Cookie Jar module with core functionalities.          |        |       | C         |
+| 15     | Develop Doubt Tracker Module                            | Code and test the Doubt Tracker module with core functionalities.       |        |       | C         |
+| 16     | Develop Curiosity Space (Idea Tracker) Module            | Code and test the Curiosity Space module with core functionalities.     |        |       | C         |
+| 17     | Develop To-Do List Module                               | Code and test the To-Do List module with core functionalities, including drag and drop. |        |       | C         |
+| 18     | Develop Continuous Information Space Module             | Code and test the Continuous Information Space module with core functionalities. |        |       | C         |
+| 19     | Develop Stage Manager Module                            | Code and test the Stage Manager module with core functionalities.       |        |       | C         |
+| 20     | Implement Drag and Drop Functionality (@dnd-kit)        | Integrate drag and drop for relevant modules (Cookie Jar, To-Do List, Stage Manager). |        |       | C         |
+| 21     | Implement User Authentication (Clerk)                     | Ensure secure user authentication and account management.               |        |       | C         |
+| 22     | Write Algorithms and Technique Descriptions (Crit C)    | Document key algorithms and techniques used with diagrams and explanations for Criterion C. |        |       | C         |
+| 23     | Complete Criterion C: Development Documentation        | Finalise and review all sections of Criterion C, ensuring technical details are documented. |        |       | C         |
+| 24     | Conduct Functionality Testing and Bug Fixing             | Thoroughly test all modules and features, address identified bugs.     |        |       | D         |
+| 25     | Cross-Browser and Device Compatibility Testing          | Test the application on different browsers and devices as per success criteria. |        |       | D         |
+| 26     | Create Functionality Video (Criterion D)                | Record a video demonstrating the application's functionality for Criterion D. |        |       | D         |
+| 27     | Add Code Comments for Maintainability (Criterion D)      | Review and add comments to the codebase to enhance maintainability.     |        |       | D         |
+| 28     | Complete Criterion D: Functionality & Extensibility Doc | Finalise and review all sections of Criterion D, ensuring functionality and extensibility are addressed. |        |       | D         |
+| 29     | Client Evaluation and Feedback Session (Criterion E)     | Conduct final interview with Isht to gather feedback on the application. |        |       | E         |
+| 30     | Evaluate Product against Success Criteria (Criterion E)  | Systematically evaluate the product against each success criterion in Criterion E. |        |       | E         |
+| 31     | Formulate Student Recommendations for Future Dev (Crit E) | Develop and document recommendations for future development based on evaluation and feedback. |        |       | E         |
+| 32     | Complete Criterion E: Evaluation Documentation          | Finalise and review all sections of Criterion E, ensuring comprehensive evaluation. |        |       | E         |
+| 33     | Final Documentation Review and Submission              | Review and proofread the entire documentation before final submission.  |        |       | All       |

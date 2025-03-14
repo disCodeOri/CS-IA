@@ -1,0 +1,65 @@
+CS IA Criteria Details 
+
+CRITERIA A \- PLANNING 
+
+- THE SCENARIO   
+  - A client and/or adviser has been identified.  
+  - A problem requiring a solution, or an unanswered question has been described.    
+  - The word count for the scenario is approximately 250\.   
+  - Initial consultation with client and/or adviser   
+  - The evidence of consultation has been referred to in the scenario.    
+  - Any documentation associated with evidence of consultation has been linked to the cover page.    
+  - The proposed product   
+  - The proposed product has been identified.   
+  - The proposed product resolves the inadequacies identified or the unanswered question.   
+  - The justification of the proposed product is approximately 250 words.  
+  - Specific performance (success) criteria   
+  - Specific performance criteria have been drawn up that make it possible to evaluate the success of the product in criterion E. 
+
+CRITERIA B \- SOLUTION OVERVIEW 
+
+- Record of tasks   
+  - The Record of tasks form has been used.   
+  - The Record of tasks form refers to the product proposed in criterion A.   
+  - The Record of tasks form has been updated during the lifetime of the solution.   
+  - The Record of tasks form provides a realistic plan and timeline for managing the    
+  - solution, including the gathering of necessary information, the development of the product and the testing process.   
+- Design overview   
+  - The designs refer to the proposed product identified in criterion A and the Record of tasks form.    
+  - The designs include a range of design levels.   
+  - The design identifies a range of appropriate techniques and original thinking that will be used in the development of the product. \-The designs are in sufficient detail to indicate how the product will function.   
+  - The test plan proposed addresses the main types of test appropriate to the product and relates to the specific performance criteria identified in criterion A 
+
+CRITERIA C \- DEVELOPMENT 
+
+- C Development   
+- The different techniques used to develop the product have been identified.   
+- The different algorithms used in the development of the product have been represented diagrammatically.   
+- The product includes a range of appropriate techniques.    
+- The appropriateness of the product structure has been justified.   
+- The explanation of why the techniques in the product have been used, including screenshots, has been included.   
+- All sources have been cited using an appropriate referencing style, for example, Harvard, MLA, and so on.   
+- The technical documentation is approximately 1,000 words. 
+
+CRITERIA D- Functionality and Extensibility of product 
+
+- Functionality   
+  - The product has sufficient extent to enable its effectiveness and functionality to be evaluated.   
+  - The product has been thoroughly tested in a range of situations to ensure the product is functional.    
+  - The tests used to ensure the functionality correspond to those in the completed test plan.   
+  - The product has been tested in more than one location under different conditions such as on CD-ROM/DVD or USB.   
+  - A video of the product functioning has been included in a commonly used format.   
+- Extensibility   
+  - Comments are used appropriately to indicate how the product could be maintained by a third party. 
+
+CRITERIA E \-EVALUATION 
+
+- E Evaluation   
+  - Client and/or adviser feedback   
+    - Any documentation associated with evidence of feedback has been linked to the cover page.   
+  - Client and/or adviser evaluation   
+    - The evaluation refers to the success criteria identified in criterion A.   
+    - The evaluation explicitly refers to the feedback obtained from the client and/or adviser.   
+  - Student recommendations   
+    - The recommendations are appropriate to the client and/or adviser for the future development of the product.   
+    - The evaluation of the product and future product development is approximately 500 words 

@@ -1,0 +1,298 @@
+Full diagram
+```mermaid
+erDiagram
+    USER ||--o{ DOUBT : has
+    USER ||--o{ IDEA : has
+    USER ||--|| COOKIE_JAR : has
+    USER ||--|| TODO_LIST_DATA : has
+    USER ||--o{ NOTEBOOK : has
+    USER ||--|| STAGE_MANAGER_DATA : has
+    COOKIE_JAR ||--o{ COOKIE : contains
+    TODO_LIST_DATA ||--o{ SECTION : contains
+    SECTION ||--o{ COLUMN : contains
+    COLUMN ||--o{ NOTE : contains
+    NOTE ||--o{ SUBTASK : contains
+    NOTEBOOK ||--o{ NOTEBOOK_SECTION : contains
+    NOTEBOOK_SECTION ||--o{ NOTEBOOK_COLUMN : contains
+    NOTEBOOK_COLUMN ||--o{ NOTEBOOK_NOTE : contains
+    STAGE_MANAGER_DATA ||--o{ SPACE : contains
+    SPACE ||--o{ WINDOW : contains
+    DOUBT ||--o{ COMMENT : has
+    IDEA ||--o{ COMMENT : has
+
+    USER {
+        string clerkUserId
+    }
+    
+    COOKIE_JAR {
+        map cookies
+    }
+    
+    COOKIE {
+        string cookieId
+        string name
+        string description
+        object position
+    }
+    
+    TODO_LIST_DATA {
+        array sections
+    }
+    
+    SECTION {
+        string id
+        string title
+        boolean isArchived
+        boolean isPreviewingArchived
+    }
+    
+    COLUMN {
+        string id
+        string title
+    }
+    
+    NOTE {
+        string id
+        string content
+        boolean checked
+    }
+    
+    SUBTASK {
+        string id
+        string content
+        boolean checked
+    }
+    
+    NOTEBOOK {
+        string notebookId
+        string title
+        string description
+        timestamp createdAt
+        timestamp updatedAt
+        array sections
+    }
+    
+    NOTEBOOK_SECTION {
+        string id
+        string title
+        boolean isArchived
+        boolean isPreviewingArchived
+    }
+    
+    NOTEBOOK_COLUMN {
+        string id
+        string title
+    }
+    
+    NOTEBOOK_NOTE {
+        string id
+        string content
+    }
+    
+    STAGE_MANAGER_DATA {
+        array spaces
+    }
+    
+    SPACE {
+        number id
+    }
+    
+    WINDOW {
+        string id
+        string title
+        string content
+        array position
+        array size
+    }
+    
+    DOUBT {
+        string doubtId
+        string title
+        string description
+        number upvotes
+        number downvotes
+        boolean resolved
+        string solution
+        timestamp createdAt
+    }
+    
+    IDEA {
+        string ideaId
+        string title
+        string description
+        number upvotes
+        number downvotes
+        boolean resolved
+        string solution
+        timestamp createdAt
+    }
+    
+    COMMENT {
+        string commentId
+        string text
+        string parentId
+        timestamp createdAt
+    }
+```
+
+Overview:
+```mermaid
+erDiagram
+    USER ||--o{ DOUBT : "has"
+    USER ||--o{ IDEA : "has"
+    USER ||--|| COOKIE_JAR : "has"
+    USER ||--|| TODO_LIST_DATA : "has"
+    USER ||--o{ NOTEBOOK : "has"
+    USER ||--|| STAGE_MANAGER_DATA : "has"
+
+    USER {
+        string clerkUserId
+    }
+```
+
+CookieJar:
+```mermaid
+erDiagram
+    COOKIE_JAR ||--o{ COOKIE : "contains"
+
+    COOKIE_JAR {
+        map cookies
+    }
+    
+    COOKIE {
+        string cookieId
+        string name
+        string description
+        object position
+    }
+```
+
+ToDoList:
+```mermaid
+erDiagram
+    TODO_LIST_DATA ||--o{ SECTION : "contains"
+    SECTION ||--o{ COLUMN : "contains"
+    COLUMN ||--o{ NOTE : "contains"
+    NOTE ||--o{ SUBTASK : "contains"
+
+    TODO_LIST_DATA {
+        array sections
+    }
+    
+    SECTION {
+        string id
+        string title
+        boolean isArchived
+        boolean isPreviewingArchived
+    }
+    
+    COLUMN {
+        string id
+        string title
+    }
+    
+    NOTE {
+        string id
+        string content
+        boolean checked
+    }
+    
+    SUBTASK {
+        string id
+        string content
+        boolean checked
+    }
+```
+
+CISNotebook:
+```mermaid
+erDiagram
+    NOTEBOOK ||--o{ NOTEBOOK_SECTION : "contains"
+    NOTEBOOK_SECTION ||--o{ NOTEBOOK_COLUMN : "contains"
+    NOTEBOOK_COLUMN ||--o{ NOTEBOOK_NOTE : "contains"
+
+    NOTEBOOK {
+        string notebookId
+        string title
+        string description
+        timestamp createdAt
+        timestamp updatedAt
+        array sections
+    }
+    
+    NOTEBOOK_SECTION {
+        string id
+        string title
+        boolean isArchived
+        boolean isPreviewingArchived
+    }
+    
+    NOTEBOOK_COLUMN {
+        string id
+        string title
+    }
+    
+    NOTEBOOK_NOTE {
+        string id
+        string content
+    }
+```
+
+StageManager:
+```mermaid
+erDiagram
+    STAGE_MANAGER_DATA ||--o{ SPACE : "contains"
+    SPACE ||--o{ WINDOW : "contains"
+
+    STAGE_MANAGER_DATA {
+        array spaces
+    }
+    
+    SPACE {
+        number id
+    }
+    
+    WINDOW {
+        string id
+        string title
+        string content
+        array position
+        array size
+    }
+```
+
+DoubtsTracker and CuriositySpace:
+```mermaid
+erDiagram
+    DOUBT ||--o{ COMMENT : "has"
+    IDEA ||--o{ COMMENT : "has"
+
+    DOUBT {
+        string doubtId
+        string title
+        string description
+        number upvotes
+        number downvotes
+        boolean resolved
+        string solution
+        timestamp createdAt
+    }
+    
+    IDEA {
+        string ideaId
+        string title
+        string description
+        number upvotes
+        number downvotes
+        boolean resolved
+        string solution
+        timestamp createdAt
+    }
+    
+    COMMENT {
+        string commentId
+        string text
+        string parentId
+        timestamp createdAt
+    }
+```
