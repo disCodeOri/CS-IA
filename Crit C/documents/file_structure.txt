@@ -1,0 +1,122 @@
+├── kill-dem
+│   ├── .env.local
+│   ├── .firebaserc
+│   ├── components.json
+│   ├── firebase.json
+│   ├── firestore.indexes.json
+│   ├── firestore.rules
+│   ├── next-env.d.ts
+│   ├── next.config.mjs
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── pastebin.tsx
+│   ├── postcss.config.mjs
+│   ├── src
+│   │   ├── app
+│   │   │   ├── ContinuousInfoSpaceDocMan
+│   │   │   │   ├── ContinuousInfoSpace
+│   │   │   │   │   ├── [notebookId]
+│   │   │   │   │   │   ├── page.tsx
+│   │   │   │   │   ├── page.tsx
+│   │   │   │   ├── page.tsx
+│   │   │   ├── CookieJar
+│   │   │   │   ├── page.tsx
+│   │   │   ├── CuriositySpace
+│   │   │   │   ├── page.tsx
+│   │   │   ├── DoubtTracker
+│   │   │   │   ├── page.tsx
+│   │   │   ├── ToDoList
+│   │   │   │   ├── page.tsx
+│   │   │   ├── components
+│   │   │   │   ├── Dashboard.tsx
+│   │   │   │   ├── SpaceDeleteAlertToast.tsx
+│   │   │   │   ├── WorkStage.tsx
+│   │   │   ├── globals.css
+│   │   │   ├── layout.tsx
+│   │   │   ├── page.tsx
+│   │   │   ├── sign-in
+│   │   │   │   ├── [[...sign-in]]
+│   │   │   │   │   ├── page.tsx
+│   │   │   ├── stage-manager
+│   │   │   │   ├── page.tsx
+│   │   ├── components
+│   │   │   ├── ContinuousInfoSpace
+│   │   │   │   ├── ContinuousInfoSpaceDocMan.tsx
+│   │   │   ├── CookieJar.tsx
+│   │   │   ├── DoubtTracker.tsx
+│   │   │   ├── IdeaTracker.tsx
+│   │   │   ├── ToDoList.tsx
+│   │   │   ├── curiosity-space
+│   │   │   │   ├── CommentSection.tsx
+│   │   │   │   ├── IdeaCard.tsx
+│   │   │   │   ├── IdeaList.tsx
+│   │   │   │   ├── NewIdeaForm.tsx
+│   │   │   ├── doubts-tracker
+│   │   │   │   ├── CommentSection.tsx
+│   │   │   │   ├── DoubtCard.tsx
+│   │   │   │   ├── DoubtList.tsx
+│   │   │   │   ├── NewDoubtForm.tsx
+│   │   │   ├── sidebar-07
+│   │   │   │   ├── app-sidebar.tsx
+│   │   │   │   ├── nav-utilities.tsx
+│   │   │   ├── stage-manager
+│   │   │   │   ├── components
+│   │   │   │   │   ├── Manager
+│   │   │   │   │   │   ├── Manager.tsx
+│   │   │   │   │   │   ├── index.ts
+│   │   │   │   │   │   ├── library.ts
+│   │   │   │   │   ├── Space
+│   │   │   │   │   │   ├── Overlay.module.css
+│   │   │   │   │   │   ├── Overlay.tsx
+│   │   │   │   │   │   ├── Space.module.css
+│   │   │   │   │   │   ├── Space.tsx
+│   │   │   │   │   │   ├── Spaces.tsx
+│   │   │   │   │   │   ├── index.ts
+│   │   │   │   │   │   ├── library.ts
+│   │   │   │   │   ├── Window
+│   │   │   │   │   │   ├── Window.module.css
+│   │   │   │   │   │   ├── Window.tsx
+│   │   │   │   │   │   ├── index.tsx
+│   │   │   │   │   │   ├── library.ts
+│   │   │   │   │   ├── index.ts
+│   │   │   │   ├── contexts.ts
+│   │   │   │   ├── hooks.ts
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── space.ts
+│   │   │   ├── ui
+│   │   │   │   ├── button.tsx
+│   │   │   │   ├── card.tsx
+│   │   │   │   ├── checkbox.tsx
+│   │   │   │   ├── custom-ui
+│   │   │   │   │   ├── back-button.tsx
+│   │   │   │   ├── dialog.tsx
+│   │   │   │   ├── dropdown-menu.tsx
+│   │   │   │   ├── input.tsx
+│   │   │   │   ├── label.tsx
+│   │   │   │   ├── resizable.tsx
+│   │   │   │   ├── scroll-area.tsx
+│   │   │   │   ├── separator.tsx
+│   │   │   │   ├── sheet.tsx
+│   │   │   │   ├── sidebar.tsx
+│   │   │   │   ├── skeleton.tsx
+│   │   │   │   ├── switch.tsx
+│   │   │   │   ├── tabs.tsx
+│   │   │   │   ├── textarea.tsx
+│   │   │   │   ├── toast.tsx
+│   │   │   │   ├── toaster.tsx
+│   │   │   │   ├── tooltip.tsx
+│   │   ├── data
+│   │   │   ├── sidebar.ts
+│   │   ├── hooks
+│   │   │   ├── use-404-redirect.ts
+│   │   │   ├── use-mobile.tsx
+│   │   │   ├── use-toast.ts
+│   │   ├── lib
+│   │   │   ├── continuous-info-space-doc-man-actions.ts
+│   │   │   ├── cookies-actions.ts
+│   │   │   ├── firebase.ts
+│   │   │   ├── utils.ts
+│   │   ├── middleware.ts
+│   ├── tailwind.config.ts
+│   ├── tsconfig.json
+│   ├── wrangler.jsonc
