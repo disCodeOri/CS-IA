@@ -1,0 +1,26 @@
+Plan ToC
+
+- Techniques used (done)
+- Individual Pages
+  - login/sign-up
+  - main page
+    - workstage view
+    - dashboard view
+    - side-by-side
+  - CookieJar
+  - DoubtTracker & CuriositySpace/IdeaTracker
+    - Creation modal
+    - Edit modal
+    - Comment section
+  - Notebooks/Continuous Information Space
+    - main page (notebook management)
+      - preview modal
+    - notebook view
+      - archived panel
+      - archived section preview
+  - ToDoList
+- Firestore Methods
+- Other Common Code
+- Database implementation (done)
+- Libraries (done)
+- Bibliography
