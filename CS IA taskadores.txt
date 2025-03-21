@@ -1,24 +1,17 @@
-Plan of action for crit C and D:
-Crit C foundations:
-1. code fixes ─── on hold cuz firebase quota ran out
-2. code comments ─── done
-3. Hosting ─── on hold
-4. Firestore rules config ─── on hold cuz this is it's own headache.
-5. test data creation ─── done
-Crit D actions:
-4. Make script comments for transition and actions cues for visual part of the demo. ─── done
-5. record the demo ─── done
-6. trim the fat and then add relevant comments
-Crit C actions:
-7. make extensive notes on the work
-8. make UI screenshot annotations
-
-Code fixes
-- fix archiving for todolist and/or the notebooks thing. (not sure which one needs it.)
-- fix the size and position updates to happen when the user actually lets go of the drag and resize handles instead of every pixel change.
-- rename every instance of "Note" or "note" with "Task" and "task" respectively
-
-Docs
-- make the visual part of the Criterion D
-  - generate test data
-- make the Criterion C
+Crit A
+- formatting
+- "Refer to appendix I" after the Define the problem paragraph.
+Crit B
+- bitchass pseudocode
+Crit C
+- bibliography
+	- sync dates with ROT
+Crit D
+- video length
+- display success criteria
+- show future recommendations list in the end
+Crit E
+- Client and other feedback's to be moved to Appendix only Table of Success criteria met  with clients feedback for all the criteria's and Future recommendations
+ROT
+- fix dates
+- total time spent should add up to 30 only
