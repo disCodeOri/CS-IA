@@ -15,12 +15,6 @@
 - bibliography
   - sync dates with ROT
 
-**Crit D:**
-
-- video length needs to be withn 7 mins (speed up video sections or the entire video itself)
-- display success criteria
-- show future recommendations list in the end
-
 **Crit E:**
 
 - client and other feedback's to be moved to Appendix (Table of Success criteria met with clients feedback for all the criteria's and Future recommendations)
