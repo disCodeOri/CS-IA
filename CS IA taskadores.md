@@ -2,10 +2,6 @@
 
 - formatting
 
-**Crit A:**
-
-- "Refer to appendix I" after the Define the problem paragraph.
-
 **Crit B:**
 
 - bitchass pseudocode
