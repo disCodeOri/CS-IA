@@ -10,7 +10,3 @@
 
 - bibliography
   - sync dates with ROT
-
-**Appendix:**
-
-- fix dates and duration
