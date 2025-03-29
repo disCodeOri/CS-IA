@@ -11,10 +11,6 @@
 - bibliography
   - sync dates with ROT
 
-**Crit E:**
-
-- client and other feedbacks to be moved to Appendix (Table of Success criteria met with clients feedback for all the criteria's and Future recommendations)
-
 **ROT:**
 
 - fix dates
